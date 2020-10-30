@@ -48,10 +48,10 @@
     display(){
       var title = createElement('h2')
       title.html("Car Racing Game");
-      title.position(130, 0);
+      title.position(500, 120);
   
-      this.input.position(130, 160);
-      this.button.position(250, 200);
+      this.input.position(500, 250);
+      this.button.position(550, 290);
   
       this.button.mousePressed(()=>{
         this.input.hide();
