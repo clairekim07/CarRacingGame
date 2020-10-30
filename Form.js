@@ -1,4 +1,4 @@
-class Form {
+/*class Form {
     constructor() {
       
     }
@@ -6,13 +6,13 @@ class Form {
     display(){
       var title = createElement('h2')
       title.html("Car Racing Game");
-      title.position(130, 0);
+      title.position(200, 100);
       
       var input = createInput("Name");
       var button = createButton('Play');
       
-      input.position(250,110);
-      button.position(350,150);
+      input.position(350,110);
+      button.position(450,150);
         
       //defining a function while calling it
         button.mousePressed(function(){
@@ -22,11 +22,47 @@ class Form {
         var name = input.value();
         
         playerCount+=1;
-        player.updateName(name)
+        player.update(name)
         player.updateCount(playerCount);
         var greeting = createElement('h3');
         greeting.html("Hello " + name )
         greeting.position(130, 160)
+      });
+  
+    }
+  }*/
+
+  class Form {
+
+    constructor() {
+      this.input = createInput("Name");
+      this.button = createButton('Play');
+      this.greeting = createElement('h2');
+    }
+    hide(){
+      this.greeting.hide();
+      this.button.hide();
+      this.input.hide();
+    }
+  
+    display(){
+      var title = createElement('h2')
+      title.html("Car Racing Game");
+      title.position(130, 0);
+  
+      this.input.position(130, 160);
+      this.button.position(250, 200);
+  
+      this.button.mousePressed(()=>{
+        this.input.hide();
+        this.button.hide();
+        player.name = this.input.value();
+        playerCount+=1;
+        player.index = playerCount;
+        player.update();
+        player.updateCount(playerCount);
+        this.greeting.html("Hello " + player.name)
+        this.greeting.position(130, 100);
       });
   
     }
