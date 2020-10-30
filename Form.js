@@ -62,7 +62,7 @@
         player.update();
         player.updateCount(playerCount);
         this.greeting.html("Hello " + player.name)
-        this.greeting.position(130, 100);
+        this.greeting.position(530, 200);
       });
   
     }
