@@ -46,12 +46,14 @@
     }
   
     display(){
+
+      
       var title = createElement('h2')
       title.html("Car Racing Game");
-      title.position(500, 120);
+      title.position(displayWidth-1200, displayHeight-800);
   
-      this.input.position(500, 250);
-      this.button.position(550, 290);
+      this.input.position(displayWidth-1200, displayHeight-700);
+      this.button.position(displayWidth-1100, displayHeight-650);
   
       this.button.mousePressed(()=>{
         this.input.hide();
@@ -62,7 +64,7 @@
         player.update();
         player.updateCount(playerCount);
         this.greeting.html("Hello " + player.name)
-        this.greeting.position(530, 200);
+        this.greeting.position(displayWidth-1175, displayHeight-720);
       });
   
     }

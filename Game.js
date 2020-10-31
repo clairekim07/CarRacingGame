@@ -92,26 +92,51 @@ async wait(){
         form = new Form()
         form.display();
       }
+
+      car1 = createSprite(300,250,50,50);
+      car2 = createSprite(400,250,50,50);
+      car3 = createSprite(500,250,50,50);
+        car4 = createSprite(600,250,50,50);
+
+        cars = [car1,car2,car3,car4];
     }
   
     play(){
+
       form.hide();
       textSize(30);
       text("Game Start", 120, 100)
+
       Player.getPlayerInfo();
-  
+
       if(allPlayers !== undefined){
-        var display_position = 130;
+        //var display_position = 13console.log("hi");
+         //car indentification index
+        var index = 0;
+
+        // position of the car
+        var x = 0;
+        var y;
+
+       //plr is an iterator for array var allPlayers
         for(var plr in allPlayers){
-          if (plr === "player" + player.index)
-            fill("red")
-          else
-            fill("black");
+          index = index + 1;
+          //console.log(index);
+          x = x + 200;
+    
+          y = displayHeight - allPlayers[plr].distance;
+          //car indentification index
+          cars[index - 1].x = x;
+          cars[index - 1].y = y;
   
-          display_position+=20;
-          textSize(15);
-          text(allPlayers[plr].name + ": " + allPlayers[plr].distance, 120,display_position)
-        }
+          
+          if(index === player.index){
+            console.log(player.index);
+            cars[index-1].shapeColor = "red";
+            camera.position.x = displayWidth/2;
+            camera.position.y = cars[index - 1].y ;
+  
+          }
       }
   
       if(keyIsDown(UP_ARROW) && player.index !== null){
@@ -119,4 +144,7 @@ async wait(){
         player.update();
       }
     }
+    drawSprites();
+
   }
+}
