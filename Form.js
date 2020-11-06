@@ -37,11 +37,13 @@
     constructor() {
       this.input = createInput("Name");
       this.button = createButton('Play');
+      this.button2 = createButton('Reset');
       this.greeting = createElement('h2');
     }
     hide(){
       this.greeting.hide();
       this.button.hide();
+      //this.button2.hide();
       this.input.hide();
     }
   
@@ -54,6 +56,7 @@
   
       this.input.position(displayWidth-1200, displayHeight-700);
       this.button.position(displayWidth-1100, displayHeight-650);
+      this.button2.position(displayWidth-1000, displayHeight-650);
   
       this.button.mousePressed(()=>{
         this.input.hide();
@@ -66,9 +69,14 @@
         this.greeting.html("Hello " + player.name)
         this.greeting.position(displayWidth-1175, displayHeight-720);
       });
-  
+
+    //arrow function reduces the mistake of binding of this.keyword 
+    //this is referring to form
+      this.button2.mousePressed(()=>{
+      this.button2.hide();
+      player.updateCount(0);
+      game.update(0);
+      
+    });  
     }
   }
-  
-
- 

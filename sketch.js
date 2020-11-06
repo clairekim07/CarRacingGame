@@ -23,7 +23,7 @@ function preload(){
 function setup(){
     database = firebase.database();
     //console.log(database);
-    createCanvas(displayWidth-900, displayHeight-400);
+    createCanvas(displayWidth-500, displayHeight-200);
     game = new Game();
     game.getState();
     game.start();
@@ -42,6 +42,7 @@ function draw(){
     if(gameState === 2){                
         game.end(); 
     }
+    
     
 }
 
